@@ -6,7 +6,7 @@ const bot = new TelegramBot(token, {
 });
 
 bot.on('message', (msg) => {
-  const chatId = msg.chat.id;
+  const chatId = msg.from.id;
   console.log(msg);
-  bot.sendMessage(chatId, 'Received your message');
+  bot.sendMessage(chatId, msg.text);
 });
