@@ -5,6 +5,11 @@ const bot = new TelegramBot(token, {
   polling: true
 });
 
+var CronJob = require('cron').CronJob;
+new CronJob('* * * * * *', function() {
+  console.log('You will see this message every second');
+}, null, true, 'America/Los_Angeles');
+
 bot.on('message', (msg) => {
   const chatId = msg.from.id;
   console.log(msg);
